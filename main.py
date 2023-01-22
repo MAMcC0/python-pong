@@ -1,20 +1,30 @@
 from turtle import Screen
+from paddle import Paddle
 
 
-
-
-#  TODO: Track score, if it goes past a certain coordinate score
-#goes to other side 
-# TODO: ball tracker, allow ball to bounce off top and bottom
-# TODO: paddle control, only up and down stops at boundary, detect collison with paddle
-# TODO: establish out of bounds on right and left
 
 screen = Screen()
-screen.setup(width=1200, height=600)
+screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("Pong with Python")
 screen.tracer(0)
 
+rpaddle = Paddle((375, 0))
+lpaddle = Paddle((-375, 0))
+
+
+
+
+screen.listen()
+screen.onkey(rpaddle.move_up, "Up")
+screen.onkey(rpaddle.move_down, "Down")
+
+
+
+game_on = True
+
+while game_on:
+    screen.update
 
 
 
